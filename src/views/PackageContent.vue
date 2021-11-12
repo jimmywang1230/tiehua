@@ -81,7 +81,7 @@
       <div :class="$style.contentPrice">
         <v-text> 原價＄{{ newPrice }}</v-text>
         <br />
-        <v-text :class="$style.couponText2">-折扣{{ carData.coupon }}</v-text>
+        <v-text :class="$style.couponText2">-折扣{{ discount }}</v-text>
         <br />
         <v-divider class="mx-6"></v-divider>
         <v-text>總付款金額 </v-text>
@@ -122,6 +122,7 @@ export default {
       price: this.data.pCourse[0].price,
       detailedData: this.data.pCourse[0].detailed,
       showData: this.data.pCourse[0].show,
+      discount: 100,
       count: 1,
       shoppingData: [],
     };
@@ -133,8 +134,9 @@ export default {
       }
     },
     total: function () {
-      return this.newPrice - this.carData.coupon;
+      return this.newPrice - this.discount;
     },
+    
   },
   mounted() {
     if (this.carData == null) {
@@ -145,6 +147,7 @@ export default {
     addCount() {
       if (this.count < 10) {
         this.count = this.count + 1;
+        this.discount = this.count * 100;
       }
     },
     deCount() {
@@ -185,13 +188,15 @@ export default {
 .productNews v-text {
   color: #6c6c6c;
   font-size: 18px;
-
+  line-height: 3rem;
   font-weight: bold;
+  margin: 0 10px;
 }
 .showText v-text {
   color: #43a0af;
   font-size: 15px;
   font-weight: bold;
+  margin: 0 10px;
 }
 .showPrice {
   color: #d03232;
@@ -200,6 +205,7 @@ export default {
   position: relative;
   font-size: 16px;
   font-weight: bold;
+  margin: 0 10px;
 }
 .couponCard {
   font-weight: bold;

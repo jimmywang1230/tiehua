@@ -33,7 +33,7 @@
           :class="$style.packageCard"
         >
           <div :class="$style.number">
-            <v-card-title class="text-h3"> {{ item.number }}</v-card-title>
+            <v-card-title class="text-h3" style="line-height: 4.5rem"> {{ item.number }}</v-card-title>
           </div>
 
           <div :class="$style.cenText">
@@ -49,7 +49,9 @@
             </div>
           </v-card-actions>
           <br />
+          
         </div>
+        
       </v-card>
       <br />
     </div>
@@ -115,6 +117,14 @@ export default {
             price:"1100"
           },]
         },
+        {
+          id: 4,
+          number: "D",
+          title1: "Line旅遊套票",
+          title2: "半日遊",
+          title3: "一日包車",
+          price: "999元起",
+        },
       ],
     };
   },
@@ -143,12 +153,13 @@ export default {
   color: #d03232;
   font-weight: bold;
 }
+
 @media (max-width: 768px) {
   .packageCard .riText {
     margin-top: 70%;
   }
   .packageCard .cenText {
-    margin-top: 4%;
+    margin: 4% 0;
   }
 }
 </style>
