@@ -33,7 +33,7 @@
           :class="$style.packageCard"
         >
           <div :class="$style.number">
-            <v-card-title class="text-h3" style="line-height: 4.5rem"> {{ item.number }}</v-card-title>
+            <v-card-title class="text-h3" style="line-height: 4.125rem"> {{ item.number }}</v-card-title>
           </div>
 
           <div :class="$style.cenText">
@@ -49,9 +49,39 @@
             </div>
           </v-card-actions>
           <br />
-          
         </div>
-        
+      </v-card>
+      <br />
+    </div>
+
+      <div >
+      <v-card
+         :href="url"
+      >
+        <div
+          class="d-flex flex-no-wrap justify-space-between"
+          :class="$style.packageCard"
+         
+        >
+          <div :class="$style.number">
+            <v-card-title class="text-h3" style="line-height: 4.125rem"> D</v-card-title>
+          </div>
+
+          <div :class="$style.cenText">
+            <v-title>Line旅遊套票</v-title>
+            <br />
+            <v-title>半日遊</v-title>
+            <br />
+            <v-title>一日遊包車</v-title>
+          </div>
+          <v-card-actions>
+            <div :class="$style.riText">
+              <v-text> 999元起</v-text>
+             
+            </div>
+          </v-card-actions>
+          <br />
+        </div>
       </v-card>
       <br />
     </div>
@@ -67,6 +97,7 @@ export default {
  
   data() {
     return {
+      url: 'https://travel.line.me/global-search?q=%E9%90%B5%E8%8A%B1%E6%9D%91',
       items: [
         "2021年9月17日",
         "2021年9月18日",
@@ -117,17 +148,10 @@ export default {
             price:"1100"
           },]
         },
-        {
-          id: 4,
-          number: "D",
-          title1: "Line旅遊套票",
-          title2: "半日遊",
-          title3: "一日包車",
-          price: "999元起",
-        },
       ],
     };
   },
+  
 };
 </script>
 
@@ -153,13 +177,12 @@ export default {
   color: #d03232;
   font-weight: bold;
 }
-
 @media (max-width: 768px) {
   .packageCard .riText {
     margin-top: 70%;
   }
   .packageCard .cenText {
-    margin: 4% 0;
+    margin-top: 4%;
   }
 }
 </style>
